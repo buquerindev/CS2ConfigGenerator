@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Config Generator</title>
+    <link rel="icon" type="image/ico" href="images/ConfigGeneratorLogo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <div class="left-side">
+        <img src="images/ConfigGeneratorLogo.ico" alt="Logo" class="logo">
+        <span class="app-name">CS2 Config Generator</span>
+    </div>
+    <nav class="main-nav">
+        <a href="#about">About</a>
+        <a href="#current-problem">Main Problem</a>
+        <a href="#features">Features</a>
+        <a href="#download" class="download-link">Download</a>
+    </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About the application</h2>
+            <img src="images/mainmenu.jpg" alt="Main Menu of the application">
+            <p>
+            This application let's you save your CS2 settings into .cfg files, 
+            including popular settings and binds that aren't available in the game's menu but are often used by pros. 
+            </p>
+            <p>
+                It was designed using <strong>Unity</strong> and every command from the game was researched and implemented, so you can easily create your own custom configs.
+            </p>
+            <img src="images/files.jpg" alt="Files that the app generates">
+        </section>
+        <section id="current-problem">
+            <h2>The Problem with Custom Keybinds and Layouts</h2>
+            <p>
+                The biggest issue when creating custom keybinds in CS2 isn’t with the standard keybindings found in the game’s settings menu — those work fine regardless of your keyboard layout.
+            </p>
+            <p>
+                The problem appears when you try to bind actions that are <strong>only available via the console</strong>, such as <code>noclip</code>, <code>toggle r_fullscreen_gamma [values]</code> or any other advanced binds.
+            </p>
+            <p>
+                On <strong>non-US keyboard layouts</strong> (let's use Spanish or Portuguese as an example), some keys — like <code>ç</code> — simply aren’t recognized by the console. For example, running <code>bind ç noclip</code> 
+                will result in an error because <code>ç</code> is not a valid key name according to CS2. <img src="images/console.jpg" alt="Descripción de la imagen">
+
+            </p>
+            <p>
+                You might think: “I’ll just find the US equivalent.” But here’s the catch: <strong>ISO keyboards (used in most of Europe) have one more key than ANSI (US) layouts</strong>, and the <strong>Enter key is shaped differently</strong>, which causes several keys to be placed differently. 
+                For example, the <code>ç</code> key doesn’t exist on a US layout, so it has no direct counterpart. This makes it impossible to bind unless you can guess the correct, layout-dependent key name — which varies between systems.
+                <img src="images/difference-spanish-english.jpg" alt="Difference between Spanish and English layouts">
+            </p>
+            <p>
+                This makes creating reliable custom configs a nightmare for anyone not using a US keyboard, and this was the main motivation behind creating this application.
+            </p>
+        </section>
+        <section id="features">
+            <h2>Features & Benefits</h2>
+            <article>
+                <h3>Keyboard Layout Independent</h3>
+                <p>
+                    One of the biggest advantages is that this app works with <strong>any keyboard physical and logical layout</strong>. Instead of using layout-specific key names, it uses
+                    <a class="link" href="https://wiki.libsdl.org/SDL2/SDL_Scancode" target="_blank">SDL scancodes</a>, these codes represent the physical key of every keyboard, and they are used in Counter-Strike 2.
+                </p>
+                <p>
+                    This ensures your config works the same on <strong>QWERTY</strong>, <strong>AZERTY</strong>, <strong>DVORAK</strong>, and others — no more broken keybinds.
+                </p>
+                <p> You can even <strong>test your keyboard</strong> using the application, just select ISO/ANSI, press a key, and it will turn blue!</p>
+                <video autoplay muted loop playsinline style="display: block; margin: 2rem auto; max-width: 100%; height: auto; border-radius: 8px;">
+                <source src="videos/PressKeysBindGenerator.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </article>
+            <article>
+                <h3>Familiar layout & easy to use</h3>
+                <p>
+                    The app's interface replicates the in-game settings menu.
+                    You can easily navigate through the different sections and categories, just like in CS2.
+                    In the binds section you can see your "logical" keybinds with the US layout equivalent,
+                    and also an information panel that shows the command and its description.
+                </p>
+                <ol>
+                    <li><strong>Set your binds</strong> and <strong>click the save button</strong>. (There's an option to add an <strong>"unbindall"</strong> at the beginning)
+                    <li>The application will ask for a folder to export the <strong>binds.cfg</strong> file.</li>
+                    <li>Do the same with the settings to generate the <strong>settings.cfg</strong> file.</li>
+                </ol>
+                <video autoplay muted loop playsinline style="display: block; margin: 2rem auto; max-width: 100%; height: auto; border-radius: 8px;">
+                <source src="videos/FamiliarMenus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </article>
+            <article>
+                <h3>Organized Config Generation</h3>
+                <p>
+                    <!--This app automates the creation of `.cfg` files for CS2, making it easy to save, export, and reuse your settings. -->
+                    Each command/bind is placed inside a category. Perfect for sharing configs or switching between PCs. <image src="images/organized-binds.jpg"></image>
+                </p>
+            </article>
+            <article>
+                <h3>Includes Hidden Binds & Settings</h3>
+                <p>
+                    It includes advanced commands and binds commonly used by professional players — but not available in CS2 menus — such as:
+                </p>
+                <ul>
+                    <li>Multibinds for the same key (example: <code>bind "scancode95" "buy molotov; buy incgrenade"</code>)</li>
+                    <li>Multikeys for the same bind (example: <code>bind "scancode44" "+jump"; bind "MWHEELDOWN" "+jump"</code>)</li>
+                    <li>Buy binds</li>
+                    <li>Sound and HUD toggle binds</li>
+                    <li>Bot commands and toggle binds</li>
+                    <li><code>say</code> binds</li>
+                    <li><code>sv_cheats</code> related commands to practice</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Automatic updates</h3>
+                <p>
+                    The application fetches all <a href="https://buquerindev.github.io/CS2BindGeneratorUnity/appdata/commands.json" target="_blank">settings</a> 
+                    and <a href="https://buquerindev.github.io/CS2BindGeneratorUnity/appdata/binds.json" target="_blank">binds</a> from remote JSON files. 
+                    These are loaded and instantiated dynamically, which means new features or game updates can be integrated without requiring the user to download a new version. 
+                    Updates only become necessary in case of major structural changes or critical bug fixes.
+                </p>
+            </article>
+        </section>
+        <section id="download">
+            <h2>Download</h2>
+            <p>
+                The application is available for <strong>Windows only</strong>.
+                Please note that it is <strong>not digitally signed</strong>, so Windows may show a “Windows protected your PC” warning when you try to run it.
+                This happens because unsigned apps are treated as unverified by default.
+                <img src="images/smartscreen.jpg" width="500" alt="Windows SmartScreen warning">
+            </p>
+            <p>
+                However, the application is <strong>fully open-source</strong>, and you can inspect or compile the code yourself.
+                This transparency acts as a security guarantee for users who are cautious about running third-party software.
+            </p>
+            <div class="download-wrapper">
+                <a class="btn-download" href="downloads/CS2ConfigGenerator_v1.0.zip" download>
+                    Download v1.0 (.zip)
+                </a>
+            </div>
+        </section>
+             
+    </main>
+</body>
