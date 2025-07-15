@@ -1,0 +1,4 @@
+- Iso/ansi desde menu binds
+- que se quede guardado el tipo de teclado
+- que el json se guarde en local por si el fetch no funcionase o algo
+- viewmodel commands
