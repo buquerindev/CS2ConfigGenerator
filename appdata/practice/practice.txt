@@ -1,4 +1,4 @@
-mp_limitteams|Max Team Difference|0|bool|Maximum number of extra players allowed on one team over the other (0 disables the check)  
+mp_limitteams|Max Team Difference|0|int|Maximum number of extra players allowed on one team over the other (0 disables the check)  
 mp_autoteambalance|Auto Team Balance|0|bool|Prevents automatic team balancing (0 disables it)  
 mp_maxmoney|Max Money|99999|int|Maximum amount of money a player can have  
 mp_startmoney|Start Money|99999|int|Amount of money players start with  
